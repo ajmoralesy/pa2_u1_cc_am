@@ -1,4 +1,4 @@
-package pa2_u1_cc_am;
+package ec.edu.ec.pa.paquetes;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -11,6 +11,6 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "hola como estas";
+        return "Hello from Quarkus REST";
     }
 }
