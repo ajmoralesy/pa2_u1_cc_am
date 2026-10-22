@@ -9,28 +9,8 @@ import jakarta.inject.Singleton;
 //@RequestScoped //para aplicaciones para aplicaciones web
 //@Singleton
 public class PedidoService {
-    /* 
-    //Inyeccion de depedencias por atributo
     @Inject 
     private MailService mailService;
-    */    
-   /* 
-    //Inyeccion de depedencias por constructor
-    @Inject 
-    private MailService mailService;
-    public PedidoService (MailService mailService){
-        this.mailService = mailService;
-    }
-       */ 
-    
-    //Inyeccion de depedencias por setter
-    private MailService mailService;
-    @Inject
-    public void setMailService(MailService mailService) {
-        System.out.println("Se esta inyectando la dependecia de mailservice");
-        this.mailService = mailService;
-    }
-        
 
     public void realizar(Pedido pedido) {
         System.out.println("realizando pedido...");
