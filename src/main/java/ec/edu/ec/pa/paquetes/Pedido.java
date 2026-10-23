@@ -5,8 +5,7 @@ public class Pedido {
     private String producto;
     private double total;
     private String correo;
-
-
+    private String telefono;
 
     public Pedido() {
     }
@@ -45,6 +44,14 @@ public class Pedido {
         this.correo = correo;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
     
 
 }

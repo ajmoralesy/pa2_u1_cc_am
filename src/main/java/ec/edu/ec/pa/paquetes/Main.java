@@ -25,6 +25,7 @@ public class Main implements QuarkusApplication {
             1500.00,
             "juan.perez@example.com"
         );
+        pedido.setTelefono("09890222506");
 
         // Utilizamos el servicio inyectado por Quarkus
         this.pedidoService.realizar(pedido);

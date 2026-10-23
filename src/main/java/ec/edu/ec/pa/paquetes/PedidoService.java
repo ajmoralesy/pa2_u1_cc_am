@@ -4,18 +4,22 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.inject.spi.CDI;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 
 @ApplicationScoped // Delego el control al contendor ArC
-// @RequestScoped //para aplicaciones para aplicaciones web
-// @Singleton
+
 public class PedidoService {
 
-    //@Inject 
-    //private MailService diferente;
+    @Inject
+    @Named("mail") 
+    private Notificacion notificacionCorreo;
+    @Inject 
+     @Named("sms") 
+    private Notificacion notificacionSMS;
+    
 
     public void realizar(Pedido pedido) {
-        MailService mailService = CDI.current().select(MailService.class).get();
         System.out.println("realizando pedido...");
         System.out.println("Pedido realizado por el cliente: " + pedido.getCliente());
         System.out.println("Producto: " + pedido.getProducto());
@@ -23,10 +27,13 @@ public class PedidoService {
         System.out.println("Correo: " + pedido.getCorreo());
         System.out.println("Pedido realizado con éxito.");
 
-        String asunto = "Confirmacion de pedido";
         String cuerpo = "Estimado " + pedido.getCliente() + ", su pedido de " +
                 pedido.getProducto() + " por un total de $" + pedido.getTotal() +
                 " ha sido realizado con éxito.";
-        mailService.enviar(pedido.getCorreo(), asunto, cuerpo);
+        //Notificacion de pedido por correo electronico
+        this.notificacionCorreo.enviar(pedido.getCorreo(), cuerpo);
+        //Notificacion de pedido por SMS
+        this.notificacionSMS.enviar(pedido.getTelefono(), cuerpo);
+    
     }
 }
