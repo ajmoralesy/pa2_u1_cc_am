@@ -12,12 +12,11 @@ import jakarta.inject.Singleton;
 public class PedidoService {
 
     @Inject
-    @Named("mail") 
+    @Named("mail")
     private Notificacion notificacionCorreo;
-    @Inject 
-     @Named("sms") 
+    @Inject
+    @Named("sms")
     private Notificacion notificacionSMS;
-    
 
     public void realizar(Pedido pedido) {
         System.out.println("realizando pedido...");
@@ -30,10 +29,13 @@ public class PedidoService {
         String cuerpo = "Estimado " + pedido.getCliente() + ", su pedido de " +
                 pedido.getProducto() + " por un total de $" + pedido.getTotal() +
                 " ha sido realizado con éxito.";
-        //Notificacion de pedido por correo electronico
+        // Notificacion de pedido por correo electronico
         this.notificacionCorreo.enviar(pedido.getCorreo(), cuerpo);
-        //Notificacion de pedido por SMS
+        this.notificacionCorreo.setCantidad(this.notificacionCorreo.getCantidad() + 1);
+        System.out.println("Cantidad de correos enviados Pedido: " + this.notificacionCorreo.getCantidad());
+        this.notificacionCorreo.setNombre("Correo de Pedido");
+        // Notificacion de pedido por SMS
         this.notificacionSMS.enviar(pedido.getTelefono(), cuerpo);
-    
+      
     }
 }
