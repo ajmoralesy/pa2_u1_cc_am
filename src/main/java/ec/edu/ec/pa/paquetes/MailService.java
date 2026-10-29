@@ -8,19 +8,11 @@ import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 
 //Ambitos y contextos 
-<<<<<<< Updated upstream
-//@ApplicationScoped //su ambito es durante toda su aplicacion, es decir se crea una sola instancia de la clase y se  comparte entre todos los componentes que la utilizan.
-//@RequestScoped // su ambito es en aplicaciones web durante el request/peticion http, es decir se crea una instancia de la clase y se comparte entre todos los componentes que la utilizan durante el request/peticion http.
-//@SeccionScoped // su ambito es durante la secion del usuario, es decir se crea una instancia de la clase y se comparte entre todos los componentes que la utilizan durante durante la secion del usuario.
-//@Singleton //su ambito es durante toda su aplicacion, es decir se crea una sola instancia de la clase y se  comparte entre todos los componentes que la utilizan.
-@Dependent // Su ambito es durante la inyeccion de dependencias, es decir y se comparte entre todos los componentes que la utilizan durante la inyeccion de depedencias.
-=======
 @ApplicationScoped //su ambito es durante toda su aplicacion, es decir se crea una sola instancia de la clase y se  comparte entre todos los componentes que la utilizan.
 //@Singleton //su ambito es durante toda su aplicacion, es decir se crea una sola instancia de la clase y se  comparte entre todos los componentes que la utilizan.
 //@RequestScoped // su ambito es en aplicaciones web durante el request/peticion http, es decir se crea una instancia de la clase y se comparte entre todos los componentes que la utilizan durante el request/peticion http.
 //@SeccionScoped // su ambito es durante la secion del usuario, es decir se crea una instancia de la clase y se comparte entre todos los componentes que la utilizan durante durante la secion del usuario.
 //@Dependent // Su ambito es durante la inyeccion de depencias, es decir y se comparte entre todos los componentes que la utilizan durante la inyeccion de depedencias.
->>>>>>> Stashed changes
 
 @Named("mail")
 public class MailService implements Notificacion {
