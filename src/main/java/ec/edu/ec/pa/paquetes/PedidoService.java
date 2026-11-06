@@ -4,6 +4,7 @@ import ec.edu.ec.pa.paquetes.inteceptors.Auditoria;
 import ec.edu.ec.pa.paquetes.inteceptors.Mail;
 import ec.edu.ec.pa.paquetes.inteceptors.MedirTiempo;
 import ec.edu.ec.pa.paquetes.inteceptors.SMS;
+import ec.edu.ec.pa.paquetes.inteceptors.ValidacionCompra;
 import jakarta.enterprise.context.ApplicationScoped;
 
 
@@ -14,7 +15,6 @@ public class PedidoService {
     @Auditoria
     @SMS 
     @Mail 
-    
 
     public String realizar(Pedido pedido, String valor1) {
         try {

@@ -11,6 +11,8 @@ public class Main implements QuarkusApplication {
     // Inyección de dependencias mediante el contenedor ArC
     @Inject
     private PedidoService pedidoService;
+    @Inject
+    private CompraService compraService;
 
     public static void main(String[] args) {
         Quarkus.run(Main.class, args);
@@ -30,6 +32,18 @@ public class Main implements QuarkusApplication {
 
         // Utilizamos el servicio inyectado por Quarkus
         this.pedidoService.realizar(pedido, "valor1");    
+        
+        System.out.println("\n--- EJEMPLO DE COMPRA ---");
+
+        Compra compra = new Compra(
+            "Maria Lopez",
+            "Celular",
+            500.00,
+            "maria@example.com"
+        );
+
+        this.compraService.realizar(compra);
+        
         return 0; // Salida exitosa
 
     }
